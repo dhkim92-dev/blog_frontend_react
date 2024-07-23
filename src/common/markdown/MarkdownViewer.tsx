@@ -23,6 +23,7 @@ import 'prismjs/components/prism-yaml'
 import 'prismjs/components/prism-http'
 import { renderLatexAll } from "./plugins/LatexPlugin";
 import katex from 'katex'
+import 'katex/dist/katex.min.css';
 
 interface MarkdownViewerProps{
 	contents : string | undefined
@@ -60,25 +61,25 @@ const MarkdownViewer : React.FC<MarkdownViewerProps> = ({contents} : MarkdownVie
 							  }
 						}
 					}
-					, text(node: any) {
-						const regex = /\$\$latex\n([\s\S]*?)\n\$\$/g;
-						const text = node.literal;
-						if (regex.test(text)) {
-						  const html = text.replace(regex, (_: any, equation: string) => {
-							try {
-							  return katex.renderToString(equation, { throwOnError: false });
-							} catch (error) {
-							  console.error('Error rendering LaTeX:', error);
-							  return '<div>Error rendering LaTeX</div>';
-							}
-						  });
+					// , text(node: any) {
+					// 	const regex = /\$\$latex\n([\s\S]*?)\n\$\$/g;
+					// 	const text = node.literal;
+					// 	if (regex.test(text)) {
+					// 	  const html = text.replace(regex, (_: any, equation: string) => {
+					// 		try {
+					// 		  return katex.renderToString(equation, { throwOnError: false });
+					// 		} catch (error) {
+					// 		  console.error('Error rendering LaTeX:', error);
+					// 		  return '<div>Error rendering LaTeX</div>';
+					// 		}
+					// 	  });
 				  
-						  return [
-							{ type: 'html', content: html }
-						  ];
-						}
-						return [{ type: 'text', content: text }];
-					  }
+					// 	  return [
+					// 		{ type: 'html', content: html }
+					// 	  ];
+					// 	}
+					// 	return [{ type: 'text', content: text }];
+					//   }
 				}}
 			/>
 		</div>

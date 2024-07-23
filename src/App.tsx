@@ -12,6 +12,7 @@ import ResumeView from "./domain/resume/ResumeView";
 import ArticleView from "./domain/board/view/article/ArticleView";
 import ArticleViewer from "./domain/board/view/article-viewer/ArticleViewer";
 import ArticleEditorView from "./domain/board/view/article-editor/ArticleEditorView";
+import { TestView } from "./test/view";
 
 function App() {
   const authentication = useAuthentication()
@@ -63,4 +64,14 @@ function App() {
   )
 }
 
-export default App;
+// function App() {
+//   return (
+//     <>
+//       <Container>
+//       <TestView/>
+//       </Container>
+//     </>
+//   )
+// }
+
+export default App

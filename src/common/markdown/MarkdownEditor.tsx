@@ -74,26 +74,6 @@ const MarkdownEditor : React.FC<MarkdownEditorProps> = ({
       		hooks={{addImageBlobHook : uploadImageHook}}
 			plugins={[[codeSyntaxHighlight, { highlighter: Prism}]]}
 			usageStatistics= {false}
-			customHTMLRenderer={{
-				htmlBlock: {
-					latex(node:any) {
-						try {
-							const html = katex.renderToString(node.literal || '', {
-							  throwOnError: false
-							});
-			  
-							return [
-							  { type: 'openTag', tagName: 'div', outerNewLine: true },
-							  { type: 'html', content: html },
-							  { type: 'closeTag', tagName: 'div', outerNewLine: true }
-							];
-						  } catch (error) {
-							console.error('Error rendering LaTeX:', error);
-							return [{ type: 'html', content: '<div>Error rendering LaTeX</div>' }];
-						  }
-					}
-				},
-			}}
 		/>
 	)
 }
