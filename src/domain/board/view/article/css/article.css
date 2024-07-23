@@ -1,0 +1,232 @@
+.ArticlesView div{
+	/* margin-top : 'vp' */
+}
+
+.ArticlesView #Container{
+	background-color: white;
+}
+
+.ArticleView .flex-container {
+	display : flex;
+}
+
+.ArticleView .left {
+	margin-right : 'auto';
+}
+
+.ArticleView .right {
+	margin-right : 'auto';
+}
+
+.ArticlesView .CategoryView{
+	text-align: center;
+	/* position: ; */
+	/* top: 100px; */
+	padding-top: 30px;
+	padding: 30px;
+}
+
+.CategoryListContainer{
+	margin-top : 60px
+}
+
+.CategoryList .Title {
+	text-align: center;
+}
+
+.CategoryList .Title .flex-container{
+	display: flex;
+}
+
+.CategoryList .Title .flex-container .left {
+	margin-right : auto;
+}
+
+.CategoryList .Title .flex-container .right {
+	margin-left : auto;
+}
+
+.CategoryList .Title .flex-container .center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.CategoryList .Title .flex-container h4{
+	margin-top: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.CategoryList .Title .flex-container h5{
+	/* margin-top: 10px; */
+	/* text-align: center; */
+	color: lightgray;
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+.CategoryList h4{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.CategoryListElement p
+{
+	margin: 0px;
+	padding: 5px;
+	width: 100%;
+	color: grey;
+	background-color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.CategoryListElement p:hover
+{
+	background-color: lightgray;
+	border-radius: 5px;
+	color: white;
+	animation-duration: 1s;
+	animation-name: colorSlide;
+	animation-iteration-count: 1;
+	cursor: pointer;
+}
+
+.CategoryList hr
+{
+	color: gray;
+	width: 100%
+}
+
+.CategoryList div {
+	width : 100%;
+}
+
+.CategoryList button{
+	margin-top :  5px
+}
+
+.ArticlesView h5{
+	font-weight: 600;
+	font-style: bold;
+	text-align: center;
+}
+
+.ArticlesView h6{
+	text-align: left;
+	color: darkgray;
+}
+
+.ArticlesList{
+	margin-left: 20px;
+	padding: 5px;
+	text-align: left;
+}
+
+.ArticlesList h3{
+	font-weight: 600;
+	color : blacka
+}
+
+.ArticlesList .flexdiv {
+	display : flex;
+}
+
+.ArticlesList .flexdiv .left {
+	margin-right: auto;
+}
+
+.ArticlesList .flexdiv .right{
+	margin-left: auto;
+}
+
+.ArticlesList .flexdiv .selectable{
+	cursor: pointer;
+}
+
+.ArticlesList h4{
+	font-weight: 400;
+	color : black;
+	text-align: left;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ArticlesList .add-item{
+	color : lightgray;
+	text-align: left;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.ArticlesListElement {
+	padding-left: 5px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: solid 1px lightgray;
+
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+}
+
+.ArticlesListElement h4 {
+	font-weight: 200;
+	color : black;
+	text-align: left;
+}
+
+.ArticlesListElement h6{
+	font-weight: 200;
+	color : gray;
+	text-align: left;
+}
+
+
+.ArticlesListElement div{
+	display: flex;
+}
+
+.ArticlesListElement .left {
+	margin-right: auto;
+}
+
+.ArticlesListElement .right {
+	margin-left: auto;
+}
+
+.ArticlesListElement:hover{
+	animation-duration: 1.5s;
+	animation-name: colorSlide;
+	animation-iteration-count: 1;
+	border-radius: 10px;
+  }
+  
+  @keyframes colorSlide {
+	from {
+		background-color: lightgray;
+		color: black;
+	}
+	
+	to {
+		color: black;
+		background-color: white;
+	}
+  }
+
+.ArticleView{
+
+}
+
+.ArticleView h4{
+	margin-top: 5px;
+	text-align: center;
+	font-weight: 400;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.ArticleView h6{
+	font-weight: 200;
+	text-align: right;
+	font-family: 'Courier New', Courier, monospace;
+	color: gray;
+}

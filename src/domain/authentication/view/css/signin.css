@@ -1,0 +1,94 @@
+.SignIn {
+  margin-top: 12vh;
+  /* width : 100vw; */
+  text-align: center;
+  min-width: initial 800px;
+}
+
+.SignIn div {
+  min-width: initial 800px;
+}
+
+.SignIn .SignInTitle {
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 2vh;
+}
+
+.SignIn .SignInForm {
+  border : solid lightgray 1px;
+  width : 60%;
+  /* padding: 10px; */
+  text-align: center;
+  margin: 0 auto;
+}
+
+.SignIn .SignInForm form{
+  padding-left: 0 auto;
+}
+
+
+
+.SignIn .SignInForm .email-input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid lightgray 2px;
+  text-align: left;
+  width : 50%;
+  margin-top: 70px;
+}
+
+.SignIn .SignInForm .password-input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid lightgray 2px;
+  text-align: left;
+  width : 50%;
+  margin-top: 30px;
+}
+
+.SignIn .SignInForm input:focus{
+  outline: none;
+  border-bottom: solid black 3px;
+}
+
+.SignIn .SignInForm button{
+  text-align: center;
+  background-color: lightgray;
+  font-size: 1.2rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  border : none;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width : 50%;
+}
+
+.SignIn input {
+  margin-bottom: 20px;
+}
+
+.SignIn .SNSSignIn {
+  display: flex;
+}
+
+.SignIn .SNSSignIn .CenterAlignedBlock {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SignIn a {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.SignIn .SNSSignIn img {
+  border-radius: 30px;
+  border: solid 1px lightgray;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+};

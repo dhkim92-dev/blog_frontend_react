@@ -1,0 +1,121 @@
+.ArticleViewer {
+	margin-top: 15vh;
+	margin-bottom: 15vh;
+}
+
+.ArticleViewer hr {
+	height: 10vh;
+	color: white;
+}
+
+.ArticleViewer .TitleSection{
+	background-color: #bbbec4;
+	color: white;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	border-bottom-left-radius: 2vw;
+	border-bottom-right-radius: 2vw;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop {
+	margin-left: 3vw;
+	display: flex;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop span{
+	/* border-radius: 3px; */
+	color: white;
+	margin-right: 'auto';
+	font-size: 1.1rem;
+	margin-right : 3px;
+	margin-left : 3px;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop .left{
+	margin-right : 'auto'
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop .right{
+	margin-left : 'auto'
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop h6 {
+	color: white;
+	margin-left: auto;
+	padding-left : 2px;
+	padding-right: 2px;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop button {
+	color: white;
+	background-color: #bbbec4;
+	margin-left: auto;
+	padding-left : 4px;
+	padding-right: 4px;
+	font-size: 1.1rem;
+	border: none;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop button:hover{
+	color: lightgray;
+}
+
+.ArticleViewer .TitleSection .TitleSectionTop div {
+	color: white;
+	display: flex;
+	margin-left: auto;
+	margin-right: 3vw;
+}
+
+.ArticleViewer .TitleSection .TitleSectionBottom{
+	margin-left: 3vw;
+	color: white;
+	font-family : 'cursive';
+	margin-right: '100px'
+}
+
+.ArticleViewer .TitleSection .TitleSectionBottom div{
+	display : flex;
+}
+
+.ArticleViewer .TitleSection .TitleSectionBottom .author {
+	color: white;
+	font-family: cursive;
+	margin-right: 'auto';
+}
+
+.ArticleViewer .TitleSection .TitleSectionBottom h5 {
+	padding-left : 5px;
+	padding-right : 5px;
+}
+
+.ArticleViewer .TitleSection h1{
+	margin-left: 3vw;
+	font-weight: 700;
+	color: white;
+	width : 100%;
+}
+
+.ContentsSection{
+	padding-top: 15vh;
+	padding-left: 1.3vw;
+}
+
+/* .ContentsSection .toastui-editor-contents p, */
+/* .ContentsSection .toastui-editor-contents h6 { */
+  /* font-size: 1.2rem !important; */
+/* } */
+.toastui-editor-contents p,
+.toastui-editor-contents ol,
+.toastui-editor-contents ul {
+	font-size: 1.2rem;
+}
+.toastui-editor-contents ul > li::before {
+  content: '';
+  margin-top: 13px;
+  margin-left: -17px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ccc;
+}

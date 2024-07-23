@@ -1,0 +1,74 @@
+.ArticleEditorView {
+  min-height: 480px;
+}
+
+.ArticleEditorView .TitleBar {
+  margin-top: 15vh;
+}
+
+.ArticleEditorView .TitleBar div {
+  display : 'flex'; 
+}
+
+.ArticleEditorView .TitleBar span {
+  margin-right: auto;
+}
+
+.ArticleEditorView hr {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  background-color: gray;
+  height: 3px;
+  border: 0;
+}
+
+.ArticleEditorView .TitleBar input {
+  margin-left: auto;
+  place-content: "input text";
+  width : 80%;
+  height: 50px;
+  text-align: left;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: lightgray solid 3px;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.ArticleEditorView .TitleBar select {
+  width: 20%;
+  height: 46px;
+  border: none;
+  text-align: center;
+  border-bottom: lightgray solid 3px;
+  outline: none;
+}
+
+.ArticleEditorView .TitleBar hr {
+  width: 0;
+  height: 100%;
+  color: black;
+  margin-left:  auto;
+  margin-right : auto;
+}
+
+.ArticleEditorView .TitleBar .vertical {
+  border-right: solid 1px gray;
+  margin-left : auto;
+  margin-right : auto;
+}
+
+.ArticleEditorView .flexdiv {
+  display: flex;
+  margin-bottom: 15vh;
+}
+
+.ArticleEditorView .submit {
+  margin-left: auto;
+  background-color: lightgray;
+  color: white;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
+}
