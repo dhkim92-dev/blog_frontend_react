@@ -15,12 +15,11 @@ const ArticleViewer : React.FC = () => {
           onEdit={vm.onClickEditButton}
           onDelete={vm.onClickDeleteButton}
         />
-      </div>
       <div>
-        <div>
-        {/* <div className = 'toastui-editor-contents'> */}
+        <div style={{padding: "5px"}}>
           { vm.article ? <MarkdownViewer contents = {vm.article?.contents!}/> : null }
         </div>
+      </div>
       </div>
     </>
   )

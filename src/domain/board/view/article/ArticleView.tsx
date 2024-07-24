@@ -3,12 +3,14 @@ import "./css/article.css"
 import { ArticleListPanel } from "./components/ArticleListPanel"
 import useArticleViewModel from "../../viewmodel/ArticleViewModel"
 import CategoryListPanel from "./components/CategoryListPanel"
+import { Container } from "react-bootstrap"
 
 
 const ArticleView : React.FC = () => {
   const vm = useArticleViewModel()
 
   return (
+    <Container>
     <div style = {{marginTop: '90px'}}>
     <Row>
         <Col sm={0} xs={0} md={0} lg={4} xl={3}>
@@ -26,7 +28,8 @@ const ArticleView : React.FC = () => {
           />
         </Col>
     </Row>
-</div>
+    </div>
+    </Container>
   )
 }
 

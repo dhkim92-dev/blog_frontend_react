@@ -1,5 +1,14 @@
 .ArticleEditorView {
   min-height: 480px;
+  margin-left: 12vw;
+  margin-right: 12vw;
+}
+
+@media (max-width: 991px) {
+  .ArticleEditorView {
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
 }
 
 .ArticleEditorView .TitleBar {

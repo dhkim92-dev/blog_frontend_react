@@ -1,25 +1,31 @@
-import React from "react";
+import { Col, Container, Row } from "react-bootstrap"
+import Photo from "./component/Photo"
+import { PaperList } from "./component/PaperList"
+import { papers } from "./constants/Papers"
+import '../../common/css/introduction.css'
+import IntroducePage from "./component/IntroductionList"
+import { introduces } from "./constants/Introduce"
 
-interface PDFViewerInterface{
-	url : string;
-};
+const ResumeView : React.FC = ()  => {
 
-const PDFViwer : React.FC<PDFViewerInterface> = ({url} : PDFViewerInterface) => {
-	const viewerUrl ="https://docs.google.com/viewer?url=your_url_to_pdf&embedded=true";
-	return (
-		<object data={url} type="application/pdf" style = {{width: '100%', height : '100vh'}}>
-			<iframe src={viewerUrl}></iframe>
-		</object>
-	)
-}
+    return (
+		<div>
+			<Container className = "Introduce">  
+				<Row>
+					<Col sm={12} md = {12} xl={12}>
+						<div className = 'Introduce-Column'>
+							<IntroducePage pages={introduces}></IntroducePage>
+						</div>
+					</Col>
+				</Row>
+				<hr/>
+				<Row>
+					<PaperList data={[...papers.data]}/>
+				</Row>
+			</Container>
 
-const ResumeView = ()=>{
-	const cvFilePath : string = process.env.REACT_APP_MEDIA_URL+process.env.REACT_APP_CV_FILE_NAME
-	return (
-		<div style={{marginTop: "80px"}}>
-			<PDFViwer url={cvFilePath}></PDFViwer>
 		</div>
-	)
+    )
 }
 
-export default ResumeView;
+export default ResumeView

@@ -1,0 +1,304 @@
+.home-view {
+    background-color: black;
+}
+
+
+/* Profile CSS */
+.home-view-profile {
+    padding-top: 20vh !important;
+    padding-bottom: 20vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    text-align: center;
+    background-color: #000011 !important;
+    /* border: solid 3px green; */
+}
+
+.home-view-profile .main{
+    color: white;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.home-view-profile .summary {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.home-view-profile .summary .container {
+    /* border: 3px solid yellow; */
+}
+
+.home-view-profile .summary .container h1 {
+    padding: 20px;
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgb(191, 191, 191);
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.home-view-profile .summary .container div {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.home-view-profile .summary .container .tag {
+    color: darkgray;
+    font-size: 1.2rem;
+    /* padding: 10px; */
+}
+
+.home-view-profile .summary .container .skill {
+    color: white;
+    background-color: rgb(87, 198, 87);
+    border-radius: 25%;
+    font-size: 1.0rem;
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.home-view-profile .summary .photo-container {
+    /* border: solid 3px blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.home-view-profile .summary .photo-container img {
+    height: auto;
+    width: 300px;
+    border-radius: 50%;    
+}
+
+@media (max-width: 991px) {
+    .home-view-profile {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .home-view-profile .summary {
+        flex-direction: column; /* 작은 화면에서는 세로로 쌓이도록 설정 */
+    }
+
+    .home-view-profile .summary .container h1{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .home-view-profile .summary .container div {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home-view-profile .summary .container .tag {
+        padding: initial;
+        margin: initial;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .home-view-profile .summary .container .skill {
+        font-size: 1.0rem
+    }
+
+  
+    .home-view-profile .summary .photo-container {
+        order: 1; /* 작은 화면에서는 이미지가 위로 가도록 설정 */
+        margin-bottom: 20px; /* 이미지와 이름 사이에 여백 추가 */
+        text-align: center; /* 작은 화면에서도 가운데 정렬 */
+    }
+
+    .home-view-profile .summary .photo-container img {
+        width: 150px;
+    }
+
+    .home-view-profile .summary .container {
+        order: 2; /* 작은 화면에서는 이름이 아래로 가도록 설정 */
+        text-align: center; /* 작은 화면에서도 가운데 정렬 */
+    }
+    
+    .home-view-profile .main {
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+}
+
+/* Profile CSS 끝 */
+
+/* Skills CSS */
+.home-view-skills {
+    padding-top: 15vh;
+    background-color: #070218;
+    padding-bottom: 15vh;
+}
+
+.home-view-skills .container{
+    
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center;
+    text-align: center;
+}
+
+
+.home-view-skills h1 {
+    color: rgb(191, 191, 191);    
+    font-weight: bold;
+    text-align: "center";
+    font-size: 5rem;
+    margin-right: 10px;
+    margin-bottom: 5vh;
+}
+
+.home-view-skills .skill-major {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home-view-skills .skill-major h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+
+.home-view-skills .skill-available {
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 2re;
+    margin-right: 10px;
+}
+
+.home-view-skills .skill-available h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.home-view-skills .image-block {
+    display: flex;
+    text-align: center;
+    justify-content: center; /* 가로 가운데 정렬 */
+    flex-wrap: wrap; /* 필요시 줄바꿈 허용 */
+    gap: 10px; /* 이미지 간격 추가 */
+}
+
+.home-view-skills .image-block img {
+    width: 100px;
+    height: 100px;
+    background-color: white !important;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 5px;
+}
+/*Skills CSS 끝*/
+
+/* Timeline CSS */
+
+.home-view-timeline {
+    padding-top: 20vh;
+    background-color: black;
+    padding-bottom: 20vh;
+}
+
+.home-view-timeline .root {
+    text-align: center;
+    justify-items: center;
+}
+
+.home-view-timeline .root .header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-view-timeline .root .header h1 {
+    font-size: 4rem;
+    color: rgb(191, 191, 191);    
+    text-align: center;
+}
+
+
+.home-view-timeline .root .container {
+    /* border: solid 3px yellow */
+}
+
+.home-view-timeline .root .container .summary {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+    color: white;
+    gap: 30px
+}
+
+.home-view-timeline .root .container .summary .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15%;
+    background-color : rgb(37, 36, 41);
+    min-width: 30%;
+    min-height: 300px;
+    padding: 10px;
+    font-size: 2rem;
+    color: rgb(178, 178, 178)
+}
+
+.home-view-timeline .root .main {
+    padding-top: 30px;
+    color: white;
+}
+
+
+.home-view-timeline .root .main .horizontal-container {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    display: flex;
+    border-left: solid 3px gray;
+}
+
+.home-view-timeline .root .main .left-cell {
+    color:white;
+    padding-left: 10px;
+    border-left: solid 2px gray;
+    margin-right: 30%;
+}
+
+.home-view-timeline .root .main .left-cell h1{
+    color:white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home-view-timeline .main .left-cell div {
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+.home-view-timeline .main .right-cell {
+    color:white;
+    text-align: left;
+}
+
+.home-view-timeline .main .right-cell h1{
+    color:white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home-view-timeline .main .right-cell div {
+    color: white;
+    font-size: 1.2rem;
+}

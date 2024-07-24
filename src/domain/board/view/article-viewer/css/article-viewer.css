@@ -1,6 +1,15 @@
 .ArticleViewer {
 	margin-top: 15vh;
 	margin-bottom: 15vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+@media (max-width: 991px) {
+	.ArticleViewer {
+		margin-left: 3vw;
+		margin-right: 3vw;
+	}
 }
 
 .ArticleViewer hr {

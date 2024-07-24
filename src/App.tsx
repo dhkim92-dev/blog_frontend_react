@@ -1,7 +1,6 @@
 import "./App.css";
 import { Container, Row } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
-import HomeView from "./domain/home/HomeView";
 import useAuthentication from "./common/hooks/useAuthenticated";
 import { useEffect } from "react";
 import { decodeJWT, reissueAccessToken } from "./domain/authentication/api/api";
@@ -13,6 +12,7 @@ import ArticleView from "./domain/board/view/article/ArticleView";
 import ArticleViewer from "./domain/board/view/article-viewer/ArticleViewer";
 import ArticleEditorView from "./domain/board/view/article-editor/ArticleEditorView";
 import { TestView } from "./test/view";
+import { HomeView } from "./domain/home/view/HomeView";
 
 function App() {
   const authentication = useAuthentication()
@@ -49,7 +49,6 @@ function App() {
       <Container>
         <Row><NavigationBar/></Row>
       </Container>
-      <Container>
         <Routes>
           <Route path="/" element = {<HomeView/>}/>
           <Route path="/articles" element = {<ArticleView/>}/>
@@ -59,7 +58,6 @@ function App() {
           <Route path="/sign-in" element = {<SignInView/>}/>
           <Route path="/sign-in/oauth2/callback/github" element = {<GithubOAuth2Callback/>}/>
         </Routes>
-      </Container>
     </>
   )
 }
