@@ -11,6 +11,8 @@
     padding-right: 20vw;
     text-align: center;
     background-color: #000011 !important;
+    overflow-x: hidden;
+
     /* border: solid 3px green; */
 }
 
@@ -78,6 +80,7 @@
     .home-view-profile {
         padding-left: 5vw;
         padding-right: 5vw;
+        overflow-x: hidden;
     }
 
     .home-view-profile .summary {
@@ -131,7 +134,10 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+    .home-view-profile .summary .container .skill {
+        font-size: 0.8rem
+    }
 }
 
 /* Profile CSS 끝 */
@@ -141,6 +147,7 @@
     padding-top: 15vh;
     background-color: #070218;
     padding-bottom: 15vh;
+    overflow-x: hidden;
 }
 
 .home-view-skills .container{
@@ -210,6 +217,7 @@
     padding-top: 20vh;
     background-color: black;
     padding-bottom: 20vh;
+    overflow-x: hidden;
 }
 
 .home-view-timeline .root {
@@ -239,7 +247,7 @@
     justify-content: center;
     padding-top: 5vh;
     color: white;
-    gap: 30px
+    gap: 15px
 }
 
 .home-view-timeline .root .container .summary .box {
@@ -249,7 +257,7 @@
     border-radius: 15%;
     background-color : rgb(37, 36, 41);
     min-width: 30%;
-    min-height: 300px;
+    min-height: 250px;
     padding: 10px;
     font-size: 2rem;
     color: rgb(178, 178, 178)
@@ -271,7 +279,7 @@
 .home-view-timeline .root .main .left-cell {
     color:white;
     padding-left: 10px;
-    border-left: solid 2px gray;
+    /* border-left: solid 2px gray; */
     margin-right: 30%;
 }
 
@@ -288,6 +296,7 @@
 
 
 .home-view-timeline .main .right-cell {
+    padding-left: 10px;
     color:white;
     text-align: left;
 }
@@ -301,4 +310,22 @@
 .home-view-timeline .main .right-cell div {
     color: white;
     font-size: 1.2rem;
+}
+
+@media(max-width: 991px) {
+    .home-view-timeline .root .main .horizontal-container {
+        padding-left: 5px;
+        flex-direction: column;
+    }
+
+    .home-view-timeline .root .main .left-cell h1 {
+        text-align: left;
+    }
+
+    .home-view-timeline .root .container .summary .box {
+        font-size: 1.4rem;
+        min-width: 30%;
+        min-height: 150px;
+
+    }
 }

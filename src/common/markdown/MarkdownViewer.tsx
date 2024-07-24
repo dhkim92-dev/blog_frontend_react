@@ -1,6 +1,7 @@
 import { Viewer } from "@toast-ui/react-editor";
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+// import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '../../domain/board/view/article-viewer/css/article-viewer.css'
 import React, { useEffect } from 'react';
@@ -42,45 +43,6 @@ const MarkdownViewer : React.FC<MarkdownViewerProps> = ({contents} : MarkdownVie
 			<Viewer initialValue={renderLatexAll(contents as string)}
 				referenceDefinition={true}
 				plugins={[[codeSyntaxHighlight, {highlighter : Prism}]]}
-				customHTMLRenderer={{
-					htmlBlock: {
-						latex(node:any) {
-							try {
-								const html = katex.renderToString(node.literal || '', {
-								  throwOnError: false
-								});
-				  
-								return [
-								  { type: 'openTag', tagName: 'div', outerNewLine: true },
-								  { type: 'html', content: html },
-								  { type: 'closeTag', tagName: 'div', outerNewLine: true }
-								];
-							  } catch (error) {
-								console.error('Error rendering LaTeX:', error);
-								return [{ type: 'html', content: '<div>Error rendering LaTeX</div>' }];
-							  }
-						}
-					}
-					// , text(node: any) {
-					// 	const regex = /\$\$latex\n([\s\S]*?)\n\$\$/g;
-					// 	const text = node.literal;
-					// 	if (regex.test(text)) {
-					// 	  const html = text.replace(regex, (_: any, equation: string) => {
-					// 		try {
-					// 		  return katex.renderToString(equation, { throwOnError: false });
-					// 		} catch (error) {
-					// 		  console.error('Error rendering LaTeX:', error);
-					// 		  return '<div>Error rendering LaTeX</div>';
-					// 		}
-					// 	  });
-				  
-					// 	  return [
-					// 		{ type: 'html', content: html }
-					// 	  ];
-					// 	}
-					// 	return [{ type: 'text', content: text }];
-					//   }
-				}}
 			/>
 		</div>
 	)
