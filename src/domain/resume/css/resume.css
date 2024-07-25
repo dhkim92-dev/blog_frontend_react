@@ -1,0 +1,136 @@
+.resume-light {
+    margin-top: 10vh;
+    background-color: white;
+    padding-left: 30vw;
+    padding-right: 30vw;
+}
+
+@media(max-width: 1919px) {
+    .resume-light{
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
+}
+
+@media(max-width: 1365px) {
+    .resume-light{
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+}
+
+@media(max-width: 991px) {
+    .resume-light{
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+
+@media(max-width: 991px) {
+    .resume-light{
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+
+
+
+.resume-light .profile {
+    text-align: center;
+}
+
+.resume-light .container {
+    padding-left: 20px;
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.resume-light .inner-container {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-light .bold-text{
+    font-weight: bold;
+}
+
+.resume-light .container .main-contents {
+    margin-top: 10px;
+}
+
+.resume-light .square-list {
+    margin-top: 5px;
+    list-style: square;
+}
+
+.resume-light .square-list-no-margin {
+    list-style: square;
+}
+
+.resume-light .circle-list {
+    margin-top: 5px;
+    list-style: circle;
+}
+
+.resume-light .disc-list {
+    margin-top: 5px;
+    list-style: disc;
+}
+
+/* .resume-light .container .sub-contents {
+    padding-left: 10px
+} */
+ .resume-light .sub-contents {
+    margin-top: 3px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    list-style:square ;
+ }
+
+.resume-light .flex-container {
+    display: flex;
+}
+
+.resume-light .space-between-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.resume-light .horizontal-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 5px
+}
+
+.resume-light .horizontal-container .flex-title-li {
+    list-style: square;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.resume-light .horizontal-container .flex-contents {
+    padding-left: 10px
+}
+
+
+.resume-light .section-bar {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* dark theme */
+
+.resume-dark {
+    margin-top: 10vh;
+    background-color: black;
+    color: white;
+}
