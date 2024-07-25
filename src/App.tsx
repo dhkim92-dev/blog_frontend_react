@@ -46,9 +46,7 @@ function App() {
 
   return (
     <>
-      <Container>
-        <Row><NavigationBar/></Row>
-      </Container>
+        <NavigationBar/>
         <Routes>
           <Route path="/" element = {<HomeView/>}/>
           <Route path="/articles" element = {<ArticleView/>}/>

@@ -38,13 +38,11 @@ const Profile : React.FC = ()=>{
 
             <div className='main'>
                 <div className='content'>
-                Hi, My name is Dohoon Kim. Work as Backend Engineer.
-                <br/>
-                I can handle 3 web backend frameworks and have CKA Certification.
-                <br/>
-                Also have embedded linux system skills and can handle Graphics API likes OpenGL, Vulkan, CUDA, OpenCL.
-                <br/>
-                Currently, I have interest in Micro service architecture on heavy traffic environment. 
+                Welcome, I'm Dohoon Kim. 
+                I've continued my four-year journey as a software developer. 
+                Mainly, worked as a web backend, but also built service infrastructure.
+                Recently, I'm interested in topics such as high-availability system design in massive traffic environments,
+                and Domain Driven Development. Excluding the field I am working in, I also have technology for embedded systems and graphics technologies such as OpenGL and Vulkan.
                 </div>
             </div> 
         </div>   

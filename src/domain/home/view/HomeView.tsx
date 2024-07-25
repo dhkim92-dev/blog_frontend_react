@@ -7,10 +7,10 @@ import { Timeline } from "./components/Timeline";
 export const HomeView: React.FC = ()=>{
 
     return (
-        <>
+        <div className="home-view">
         <Profile/>
         <SkillSet/>
         <Timeline/>
-        </>
+        </div>
     )
 }

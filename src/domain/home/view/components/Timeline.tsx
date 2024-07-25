@@ -42,8 +42,8 @@ const timelineData = [
     }, {
         teamName: "University of Seoul, Graphics Laboratory",
         span: {
-            from: "2018",
-            to: "2020"
+            from: "2015",
+            to: "2018"
         },
         skills: ["OpenCL", "CUDA", "C++", "Python"],
         tasks: [
