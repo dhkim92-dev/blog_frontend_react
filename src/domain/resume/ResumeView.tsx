@@ -48,8 +48,8 @@ const ResumeView : React.FC = ()  => {
 			<ResumeInterest data = {data.interestedIn}/>
 			<ResumePublication data = {data.publications}/>			
 			<ResumeReference data = {data.collaborators}/>
-			<button onClick={()=>{setIsDark(!isDark)}}> theme change </button>
-			<button onClick={()=>{setIsEn(!isEn)}}> language change </button>
+			{/* <button onClick={()=>{setIsDark(!isDark)}}> theme change </button> */}
+			{/* <button onClick={()=>{setIsEn(!isEn)}}> language change </button> */}
 		</div>
     )
 }
