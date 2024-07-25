@@ -1,12 +1,11 @@
 import { Children } from "react"
 
-interface ClickableText {
+interface ClickableTextProps {
 	text: string
 	onClick: any
-    children?: any
 }
 
-export default function ClickableText({text, onClick}: ClickableText) {
+export default function ClickableText({text, onClick}: ClickableTextProps) {
 	return (
 		<div className="clickable-text" onClick={()=>{onClick()}}>
 			{text}

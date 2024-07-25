@@ -1,4 +1,3 @@
-// import "./App.css";
 import { Container, Row } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import useAuthentication from "./common/hooks/useAuthenticated";
@@ -6,7 +5,7 @@ import { useEffect } from "react";
 import { decodeJWT, reissueAccessToken } from "./domain/authentication/api/api";
 import { GithubOAuth2Callback } from "./domain/authentication/view/GithubOAuth2Callback";
 import SignInView from "./domain/authentication/view/SignInView";
-import NavigationBar from "./common/navigation/NavigationBar";
+import NavigationBar from "./domain/navigation/NavigationBar";
 import ResumeView from "./domain/resume/ResumeView";
 import ArticleView from "./domain/board/view/article/ArticleView";
 import ArticleViewer from "./domain/board/view/article-viewer/ArticleViewer";

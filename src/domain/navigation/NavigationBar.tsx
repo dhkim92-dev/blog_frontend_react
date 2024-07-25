@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import {NavigateFunction, useNavigate} from 'react-router-dom'
 import useAuthentication from "../../common/hooks/useAuthenticated";
-import { signOut } from "../../domain/authentication/api/api";
-import "./css/navigation-bar.css"
+import { signOut } from "../authentication/api/api";
+import './css/navigation-bar.css'
 import ClickableText from "./components/ClickableText";
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,8 @@ const NavigationBar : React.FC = () => {
 	}
 
 	return (
-		<div className="navigation-bar-light">
+		<>
+		<div className="my-navigation-bar-light">
 			<div className="container">
 				<div className="space-between-container">
 					<div className="left-aligned">
@@ -41,6 +42,7 @@ const NavigationBar : React.FC = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	)
 }
 

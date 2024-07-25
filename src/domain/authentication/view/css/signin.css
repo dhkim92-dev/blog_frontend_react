@@ -27,8 +27,6 @@
   padding-left: 0 auto;
 }
 
-
-
 .SignIn .SignInForm .email-input{
   border-top: none;
   border-left: none;
@@ -91,4 +89,4 @@
   width: 64px;
   height: 64px;
   cursor: pointer;
-};
+}
