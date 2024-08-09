@@ -24,20 +24,35 @@ export function decodeJWT(token: string) {
 }
 
 export async function reissueAccessToken() {
-    const refreshToken = localStorage.getItem(env.REACT_APP_TOKEN_REFRESH_KEY)
-
     try {
-        const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH, {
-          refresh_token : refreshToken
-        })
-      
-        const accessToken = response.data.access_token
-        rootStore.dispatch(setAccessToken(accessToken))
-        rootStore.dispatch(setMember(decodeJWT(accessToken)))
+        const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH)
     } catch(error) {
         rootStore.dispatch(setMember(null))
         rootStore.dispatch(setAccessToken(null))
-        localStorage.removeItem(env.REACT_APP_TOKEN_REFRESH_KEY)
+    }
+}
+
+export async function revokeOAuth2Accesstoken(memberId: string, platform: string): Promise<void> {
+    const url = `${process.env.REACT_APP_API_MEMBER}/${memberId}/oauth2/${platform}`
+    try {
+        const response = await axiosCustom.delete(url, {withCredentials: true})
+        if(response.status !== 204) {
+            console.log("something wrong. github revoke failed.")
+        }
+    }catch(err) {
+        console.error(err)
+        throw new Error("Github revoke failed.")
+    }
+}
+
+export async function logout(): Promise<void> {
+    const url = `${process.env.REACT_APP_JWT_AUTH}/revoke`
+    try {
+        const response = await axiosCustom.delete(url)
+        rootStore.dispatch(setMember(null))
+        rootStore.dispatch(setAccessToken(null))
+    } catch(e) {
+        console.log(e)
     }
 }
 
@@ -48,8 +63,6 @@ export async function githubLogin(queries: string): Promise<LoginResponse> {
 
     return {
         type: response.data.type,
-        accessToken: response.data.access_token,
-        refreshToken: response.data.refresh_token
     }
   } catch (err) {
     throw new Error("Github Login failed");
@@ -64,11 +77,9 @@ export async function emailPasswordSignIn(email: string, password: string): Prom
 
     try{
         const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH, request) 
-
+        console.log(response)
         return {
-            type: response.data.type,
-            accessToken: response.data.access_token,
-            refreshToken: response.data.refresh_token
+            type: response.data.type
         }
     }catch(error) {
         alert("Failed to login, check your email & password.")

@@ -43,7 +43,7 @@ export async function createCategory(name: string): Promise<CategoryDto> {
       name: name
     }
 
-    const response = await axiosCustom.post(env.REACT_APP_API_CATEGORY, vo)
+    const response = await axiosCustom.post(env.REACT_APP_API_CATEGORY_COMMAND, vo)
     const category = response.data
     return {
       id: category.id,
@@ -61,7 +61,7 @@ export async function changeCategoryName(id: number, name: string): Promise<Cate
       name: name
     }
 
-    const response = await axiosCustom.patch(env.REACT_APP_API_CATEGORY + "/" + id,vo)
+    const response = await axiosCustom.patch(env.REACT_APP_API_CATEGORY_COMMAND + "/" + id,vo)
     const category = response.data
 
     return {

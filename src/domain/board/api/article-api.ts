@@ -51,7 +51,7 @@ export async function createArticle(title: string, contents: string, category: s
             contents: contents,
             category: category
         }
-        const response = await axiosCustom.post(env.REACT_APP_API_ARTICLE, vo)
+        const response = await axiosCustom.post(env.REACT_APP_API_ARTICLE_COMMAND, vo)
         return responseToCamelCase<ArticleVo, ArticleDto>(response.data)
        }catch(error){
         throw error
@@ -65,7 +65,7 @@ export async function modifyArticle(article: Article): Promise<ArticleDto> {
             contents: article.contents,
             category: article.category.name
         }
-        const url = env.REACT_APP_API_ARTICLE_DETAIL + article.id
+        const url = env.REACT_APP_API_ARTICLE_COMMAND + "/" + article.id
         const response = await axiosCustom.patch(url, vo)
         return responseToCamelCase<ArticleVo, ArticleDto>(response.data)
     }catch(error) {
@@ -75,7 +75,7 @@ export async function modifyArticle(article: Article): Promise<ArticleDto> {
 
 export async function deleteArticle(id: string) {
     try {
-        const url = env.REACT_APP_API_ARTICLE_DETAIL + id
+        const url = env.REACT_APP_API_ARTICLE_COMMAND + "/" + id
         return await axiosCustom.delete(url)
     }catch(error) {
         throw error

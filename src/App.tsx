@@ -1,4 +1,3 @@
-import { Container, Row } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import useAuthentication from "./common/hooks/useAuthenticated";
 import { useEffect } from "react";
@@ -10,21 +9,17 @@ import ResumeView from "./domain/resume/ResumeView";
 import ArticleView from "./domain/board/view/article/ArticleView";
 import ArticleViewer from "./domain/board/view/article-viewer/ArticleViewer";
 import ArticleEditorView from "./domain/board/view/article-editor/ArticleEditorView";
-import { TestView } from "./test/view";
 import { HomeView } from "./domain/home/view/HomeView";
+import MemberProfileView from "./domain/member/view/MemberProfileView";
 
 function App() {
   const authentication = useAuthentication()
 
   useEffect(() => {
-    if(authentication.accessToken == null) {
-      return ;
-    }
-
     const ts = Date.now()
-    const payload = decodeJWT(authentication.accessToken)
+    const payload = decodeJWT(authentication.accessToken!!)
     const delay = payload?.exp * 1000 - ts - 60000
-    
+    // console.log("access token will be refreshed after " + delay/1000 + " seconds")
     const timer =  setTimeout(() => {
       reissueAccessToken()
       .then(()=>{
@@ -34,12 +29,10 @@ function App() {
   }, [authentication.accessToken])
 
   useEffect(() => {
-    const token = localStorage.getItem(process.env.REACT_APP_TOKEN_REFRESH_KEY)
-    if(!token) return
-    if(authentication.accessToken != null) return
-    reissueAccessToken()
-    .then(()=>{
-      // console.log("first load access token reissue complete, token : ", authentication.accessToken)
+    if(authentication.accessToken == null) return
+    
+    reissueAccessToken().then(()=>{
+      // console.log("access token refreshed.")
     })
   }, [])
 
@@ -52,14 +45,14 @@ function App() {
           <Route path="/articles/view" element = {<ArticleViewer/>}/>
           <Route path="/articles/edit" element = {<ArticleEditorView/>}/>
           <Route path="/resume" element = {<ResumeView/>}/>
+          <Route path="/profile" element = {<MemberProfileView/>}/>
           <Route path="/sign-in" element = {<SignInView/>}/>
-          <Route path="/sign-in/oauth2/callback/github" element = {<GithubOAuth2Callback/>}/>
+          <Route path="/sign-in/oauth2/callback" element = {<GithubOAuth2Callback/>}/>
         </Routes>
     </>
   )
 }
 
-// function App() {
 //   return (
 //     <>
 //       <Container>

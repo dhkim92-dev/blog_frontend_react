@@ -24,16 +24,12 @@ const useSignInViewModel = () => {
 
     if(emailRef.current?.value && passwordRef.current?.value) {
       emailPasswordSignIn(emailRef.current.value, passwordRef.current.value)
-      .then((res: LoginResponse)=>{
-        const {type, refreshToken, accessToken} = res
-        dispatch(setAccessToken(accessToken))
-        const member = decodeJWT(accessToken)
-        localStorage.setItem(process.env.REACT_APP_TOKEN_REFRESH_KEY, refreshToken)
-        dispatch(setMember(member))
+      .then((res)=>{
         alert("Success to login, Page will go back to your last visited.")
         navigate(-1)
       })
-      .catch(()=>{
+      .catch((err)=>{
+        console.log(err)
         alert("Failed to sign in, Check email address or password.")
       })
     }

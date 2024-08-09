@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {NavigateFunction, useNavigate} from 'react-router-dom'
 import useAuthentication from "../../common/hooks/useAuthenticated";
-import { signOut } from "../authentication/api/api";
+import { logout, signOut } from "../authentication/api/api";
 import './css/navigation-bar.css'
 import ClickableText from "./components/ClickableText";
 import { Link } from "react-router-dom";
@@ -17,6 +17,14 @@ const NavigationBar : React.FC = () => {
 	
 	const close = () => {
 		setExpanded(false)
+	}
+
+	const onClickNickname = () => {
+		logout()
+		.then(()=>{
+			alert("Logout 되었습니다.")
+			navigate("/")
+		})
 	}
 
 	return (
@@ -36,7 +44,7 @@ const NavigationBar : React.FC = () => {
 							!member?
 							<ClickableText text="Sign in" onClick={()=>{navigate("/sign-in")}}></ClickableText>
 							:
-							<ClickableText text="Sign out" onClick={()=>{signOut()}}></ClickableText>
+							<ClickableText text={member.nickname} onClick={()=>{onClickNickname()}}></ClickableText>
 						}
 					</div>
 				</div>
