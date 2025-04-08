@@ -2,10 +2,24 @@ import { Col, Row } from "react-bootstrap"
 
 const timelineData = [
     {
+        teamName : "Team Respect Me",
+        span: {
+            from: "2024",
+            to: "NOW"
+        },
+        skills: ["Spring Boot", "Spring Batch", "FCM", "K8S", "Apache Kafka"],
+        tasks: [
+            "Architect MSA based Service System.",
+            "Develop Backend APIs",
+            "Develop batch application to send peoridical Push Notifications",
+            "Develop Infrastructure based on Kubernetes"
+        ],
+        position: "Backend & Infra Engineer"
+    }, {
         teamName : "Team Bokki",
         span: {
             from: "2023",
-            to: "202x",
+            to: "2024",
         },
         skills: ["Spring Boot", "AWS EC2", "FCM", "GCP Cloud Function"],
         tasks: [

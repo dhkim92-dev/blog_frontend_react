@@ -11,6 +11,7 @@
 
     "highlight": [
         "Spring Boot, FastAPI, NestJS를 활용한 웹 백엔드 개발 4년",
+        "알람 특화 어플리케이션 백엔드 개발 & 인프라 구축",
         "면접 복기 어플리케이션 보끼 개발",
         "V-tuber 숏폼 플랫폼 백엔드 및 인프라 개발",
         "V-tuber 모션 캡쳐 소프트웨어 액션맨 통신 백엔드 개발",
@@ -219,11 +220,26 @@
 
     "sideProjects" : [
         {
+            "projectName": "알람 특화 SNS 개발",
+            "link": "",
+            "span": {
+                "from": "2024.08",
+                "to" : "Now"
+            },
+            "skills": ["Kotlin", "Spring Boot", "K8S(Onpremise)", "FCM", "Apache Kafka"],
+            "tasks": [
+                "프로덕트 컨셉 디자인",
+                "JWT 기반 인증 서비스, 회원 서비스, 알림 그룹 서비스, FCM 메시지 서비스 개발",
+                "주기적 메시지 일괄 전송 배치 서비스 개발",
+                "쿠버네티스 기반 서비스 인프라 구축"
+            ]
+        },
+        {
             "projectName" : "면접 복기 어플리케이션 보끼",
             "link" : "",
             "span" : {
                 "from": "2023.11",
-                "to" : "NOW"
+                "to" : "2024.08"
             },
             "skills": ["Kotlin", "Spring Boot", "AWS EC2", "PostgreSQL"],
             "tasks": [
@@ -237,8 +253,7 @@
     "interestedIn": [
         "마이크로 서비스 아키텍처",
         "대규모 트래픽 환경 고가용성 시스템 설계",
-        "도메인 주도 개발 방법론",
-        "애자일 프로세스"
+        "도메인 주도 디자인"
     ],
 
     "collaborators" : [

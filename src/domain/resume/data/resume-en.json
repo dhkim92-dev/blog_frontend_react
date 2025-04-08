@@ -11,6 +11,7 @@
 
     "highlight": [
         "Spring Boot, FastAPI, NestJS를 활용한 웹 백엔드 개발 4년",
+        "그룹 알림 SNS Respect Me 개발",
         "면접 복기 어플리케이션 보끼 개발",
         "V-tuber 숏폼 플랫폼 백엔드 및 인프라 개발",
         "V-tuber 모션 캡쳐 소프트웨어 액션맨 통신 백엔드 개발",
@@ -80,9 +81,9 @@
                         "from": "2023.04",
                         "to" : "2023.07"
                     },
-                    "skills": ["Spring Boot", "Express", "FCM", "Socket IO", "Auth0", "AWS SQS", "Redis", "MongoDB", "PostgreSQL"],
+                    "skills": ["Spring Boot", "Express", "FCM", "Socket IO", "Auth0", "AWS SQS", "Redis", "MongoDB", "PostgreSQL", "Cloud Front", "Elemental Media Converter"],
                     "tasks" : [
-                        "인증, 사용자관리, 피드, 팔로우, 알림 CRUD API 개발 ",
+                        "인증 API, 사용자 API, 영상 피드 API, 팔로우 API, 알림 서비스 API 개발",
                         "Auth0 인증 서비스 연동",
                         "EKS 기반 서비스 인프라 구축",
                         "영상 HLS 스트리밍 변환 파이프라인 설계 및 구축",
@@ -93,12 +94,12 @@
                 },
                 {
                     "name": "V-Tuber 모션 캡처 소프트웨어 개발",
-                    "link": "https://www.actionman.ai",
+                    "link": "https://www.youtube.com/watch?v=DovBcuiOGS4",
                     "span": {
                         "from" : "2022.09",
                         "to" : "2023.02"
                     },
-                    "skills": ["React", "Electron", "ExpressJS", "Socket.IO", "AWS"],
+                    "skills": ["React", "Electron", "ExpressJS", "Socket.IO"],
                     "tasks": [
                         "IOS APP와 Unity 간의 모션 데이터 송수신 중계 Socket.IO 서버 개발 및 최적화",
                         "사용자 인터페이스 개발",
@@ -129,7 +130,8 @@
                         "서비스 건물 대상 내부 게이트웨이 구축",
                         "Zigbee 프로토콜 및 게이트웨이 커넥터 인터페이스 구현",
                         "건물 내 센서 데이터 수집 및 전송 프로세스 구축",
-                        "내부 CCTV 스트리밍 환경 구축"
+                        "내부 CCTV 스트리밍 환경 구축",
+                        "이상 탐지 시 Kakaotalk 메시지 전송 서비스 구축"
                     ]
                 },
                 {
@@ -141,7 +143,7 @@
                     },
                     "skills": ["FastAPI", "AWS SQS", "AWS EKS", "Tensorflow"],
                     "tasks": [
-                        "Fast API 기반 공급업체 추천 API 개발",
+                        "구매 요청 품목에 대한 공급업체 추천 API 개발",
                         "물품, 공급사, 제조사 피처 벡터 생성을 위한 필드 선정 및 피처 벡터 생성 AI 모델 개발",
                         "추천 서비스 AI 모델 자동 학습 플로우 설계 및 파이프라인 구축",
                         "서비스 운영 6개월(2022.02 ~ 2022.08)",
@@ -214,11 +216,26 @@
 
     "sideProjects" : [
         {
+            "projectName" : "그룹 SNS Respect Me 개발",
+            "link": "",
+            "skills": ["Kotlin", "Spring Boot", "ELK", "MSA", "PostgreSQL"],
+            "span": {
+                "from": "2024-08",
+                "to": "NOW"
+            },
+            "tasks": [
+                "타겟 사용자 선정 및 요구사항 분석",
+                "마이크로서비스 기반 설계",
+                "인증, 사용자, 그룹, FCM 메시징 서비스 구축",
+                "쿠버네티스 기반 인프라 구축"
+            ]
+        },
+        {
             "projectName" : "면접 복기 어플리케이션 보끼",
-            "link" : "",
+            "link" : "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://apps.apple.com/kr/app/%25EB%25B3%25B4%25EB%2581%25BC-%25EB%258C%2580%25EA%25B8%25B0%25EC%2597%2585-%25EC%25B7%25A8%25EC%25A4%2580%25EC%259D%2584-%25EC%259C%2584%25ED%2595%259C-%25EC%25B1%2584%25ED%258C%2585%25ED%2598%2595-%25EB%25A9%25B4%25EC%25A0%2591%25EB%25B3%25B5%25EA%25B8%25B0/id6477782499&ved=2ahUKEwjNg9WnqoqKAxWbsVYBHTZyGDEQFnoECBoQAQ&usg=AOvVaw0OWjpcqhBY088IJ_rTskvS",
             "span" : {
                 "from": "2023-11",
-                "to" : "NOW"
+                "to" : "2024-08"
             },
             "skills": ["Kotlin", "Spring Boot", "AWS EC2", "PostgreSQL"],
             "tasks": [

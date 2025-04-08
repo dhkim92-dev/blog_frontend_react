@@ -9,10 +9,13 @@ import { AnyAction } from "@reduxjs/toolkit"
 import { Cookies, useCookies } from "react-cookie"
 import axiosCustom from "../../../common/api/axios-custom"
 
-const onLinkMode = (queries: string, dispatch: Dispatch<AnyAction>, navigate: NavigateFunction) => {
+const onLinkMode = (queries: string, 
+  dispatch: Dispatch<AnyAction>, 
+  navigate: NavigateFunction
+) => {
   githubLogin(queries)
     .then((res: LoginResponse)=>{
-      // console.log(res)
+      console.log(res)
       // dispatch(setAccessToken(res.accessToken))
       // const member = decodeJWT(res.accessToken)
       // dispatch(setMember(member))
@@ -38,7 +41,7 @@ export const GithubOAuth2Callback : React.FC = () => {
     const mode = searchParams.get("mode")
     const queries =  decodeURI(searchParams.toString())
     console.log("queries : "+ queries)
-    onLinkMode(queries,dispatch, navigate)
+    // onLinkMode(queries,dispatch, navigate)
     // onLinkMode(queries, dispatch, navigate)
     // onUnlinkMode(queries, dispatch, navigate)
   },[])

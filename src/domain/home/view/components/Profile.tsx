@@ -42,7 +42,7 @@ const Profile : React.FC = ()=>{
                 I've continued my four-year journey as a software developer. 
                 Mainly, worked as a web backend, but also built service infrastructure.
                 Recently, I'm interested in topics such as high-availability system design in massive traffic environments,
-                and Domain Driven Development. Excluding the field I am working in, I also have technology for embedded systems and graphics technologies such as OpenGL and Vulkan.
+                and Domain Driven Design. Excluding the field I am working in, I also have technology for embedded systems and graphics technologies such as OpenGL and Vulkan.
                 </div>
             </div> 
         </div>   
