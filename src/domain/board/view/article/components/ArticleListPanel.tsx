@@ -1,6 +1,5 @@
 import ArticleListPanelElement from "./ArticleListPanelElement"
 import '../css/article.css'
-import { ArticleSummaryDto } from "../../../dto/ArticleDto"
 import useAuthentication from "../../../../../common/hooks/useAuthenticated"
 import { Category } from "../../../model/Category"
 import { Article } from "../../../model/Article"

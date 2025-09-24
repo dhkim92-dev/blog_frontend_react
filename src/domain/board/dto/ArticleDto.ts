@@ -1,18 +1,17 @@
+import { BaseResponse } from "../../../common/api/schema/pagination"
 import { MemberSummaryDto } from "../../member/dto/MemberDto"
-import { CategorySummaryDto } from "./CategoryDto"
+import { CategoryDto } from "./CategoryDto"
 
-interface ArticleSummaryDto {
-  id : string
-  title : string
-  author : MemberSummaryDto
-  category : CategorySummaryDto
-  createdAt : Date
-  viewCount : number
-  commentCount : number
+interface ArticleDto extends BaseResponse{
+  id : string,
+  title : string,
+  writer : MemberSummaryDto,
+  content : string,
+  category : CategoryDto,
+  createdAt : Date,
+  viewCount : number,
+  commentCount : number,
+  likeCount: number
 }
 
-interface ArticleDto extends ArticleSummaryDto{
-  contents : string
-}
-
-export type {ArticleSummaryDto, ArticleDto}
+export type {ArticleDto}

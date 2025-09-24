@@ -1,6 +1,12 @@
-import { CategoryDto } from "../../../dto/CategoryDto"
+import { Category } from "../../../model/Category"
 
-const CategoryListPanelElement : React.FC<CategoryDto> = ({id, name, count} : CategoryDto)=>{
+export type CategoryProps = {
+	  id : number
+	  name : string
+	  count : number
+}
+
+const CategoryListPanelElement : React.FC<CategoryProps> = ({id, name, count} : CategoryProps)=>{
 	return (
 		<div className='CategoryListElement'>
 			<p style = {{textAlign : 'center'}}>{name}({count})</p>

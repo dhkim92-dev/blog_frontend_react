@@ -47,7 +47,7 @@ export function decodeJWT(token: string) {
 }
 
 function onAuthenicationSuccess(res: AxiosResponse<any, any>) {
-  const accessToken: string | undefined = res.data.data?.access_token
+  const accessToken: string | undefined = res.data.data?.accessToken
   // console.log(JSON.stringify(res.data))
   // console.log("current access token : " + accessToken)
   if(!accessToken) {

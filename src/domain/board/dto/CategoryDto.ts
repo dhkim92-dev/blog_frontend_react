@@ -1,10 +1,9 @@
-interface CategorySummaryDto {
-  id : number
-  name : string
-}
+import { BaseResponse } from "../../../common/api/schema/pagination"
 
-interface CategoryDto extends CategorySummaryDto {
+interface CategoryDto extends BaseResponse {
+  id: number,
+  name: string,
   count : number
 }
 
-export type {CategoryDto, CategorySummaryDto}
+export type {CategoryDto}

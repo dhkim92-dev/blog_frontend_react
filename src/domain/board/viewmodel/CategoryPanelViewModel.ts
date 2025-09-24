@@ -30,6 +30,7 @@ const useCategoryPanelViewModel = () => {
   }
 
   const onClickCategoryListItem = (id: number, name: string) => {
+    console.log("category item selected : ", id, name)
     defaultEventManager.notify(CategorySelectEvent, {
       id: id,
       name: name
@@ -37,6 +38,7 @@ const useCategoryPanelViewModel = () => {
   }
 
   const onSubmitCategory = (value: string) => {
+    // console.log("onSubmitCategory", value)
     categoryRepository.save(new Category(0, value, 0))
     .then((res)=>{
       setCategories([...categories, res])

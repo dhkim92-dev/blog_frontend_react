@@ -1,37 +1,19 @@
 import axiosCustom from "../../../common/api/axios-custom";
+import { CursorList } from "../../../common/api/schema/pagination";
 import { CategoryDto } from "../dto/CategoryDto";
 
 const env = process.env
 
-interface CategoryCreateRequestVo {
+interface CreateCategoryRequest {
   name: string
 }
 
-interface CategoryModifyRequestVo extends CategoryCreateRequestVo {
 
-}
-
-export async function getCategories(): Promise<CategoryDto[]> {
+export async function getCategories(): Promise<CursorList<CategoryDto>> {
   try {
     const response = await axiosCustom.get(env.REACT_APP_API_CATEGORY)
     const data = response.data
-
-    if(data.count === 0) {
-      return []
-    }
-
-    const categories: CategoryDto[] = Array.from(data.data)
-    const listData = data.data
-
-    for(var i = 0 ; i < data.count ; i++) {
-      categories[i] = {
-        id : listData[i].id,
-        name: listData[i].name,
-        count: listData[i].count
-      }
-    }
-
-    return categories
+    return data
   }catch(error) {
     throw error
   }
@@ -39,36 +21,23 @@ export async function getCategories(): Promise<CategoryDto[]> {
 
 export async function createCategory(name: string): Promise<CategoryDto> {
   try {
-    const vo: CategoryCreateRequestVo = {
+    const vo: CreateCategoryRequest = {
       name: name
     }
-
     const response = await axiosCustom.post(env.REACT_APP_API_CATEGORY_COMMAND, vo)
-    const category = response.data
-    return {
-      id: category.id,
-      name: category.name,
-      count: category.count
-    }
+    return response.data
   }catch(error) {
     throw error
   }
 }
 
-export async function changeCategoryName(id: number, name: string): Promise<CategoryDto> {
+export async function updateCategory(id: number, name: string): Promise<CategoryDto> {
   try {
-    const vo: CategoryModifyRequestVo = {
+    const req: CreateCategoryRequest = {
       name: name
     }
-
-    const response = await axiosCustom.patch(env.REACT_APP_API_CATEGORY_COMMAND + "/" + id,vo)
-    const category = response.data
-
-    return {
-      id: category.id,
-      name: category.name,
-      count: category.count
-    }
+    const response = await axiosCustom.put(env.REACT_APP_API_CATEGORY_COMMAND + "/" + id, req)
+    return response.data
   }catch(error) {
     throw error
   }

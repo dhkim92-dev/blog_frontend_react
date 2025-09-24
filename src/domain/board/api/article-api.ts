@@ -1,32 +1,37 @@
 import axiosCustom from "../../../common/api/axios-custom";
 import { CursorList } from "../../../common/api/schema/pagination";
-import { responseToCamelCase } from "../../../common/utility/case-converter";
-import { ArticleDto, ArticleSummaryDto } from "../dto/ArticleDto";
+import { ArticleDto} from "../dto/ArticleDto";
 import { Article } from "../model/Article";
-import { ArticleCreateRequestVo, ArticleModifyRequestVo, ArticleSummaryVo, ArticleVo} from "./vo/article-vo";
+import { CreateArticleRequest, CreateArticleResponse } from "./dto/article-request-dto";
 
 const env = process.env
 
-export async function getArticlesByUrl(url: string): Promise<CursorList<ArticleSummaryDto>> {
+export async function getArticlesByUrl(url: string): Promise<CursorList<ArticleDto>> {
     try {
         const response = await axiosCustom.get(url)
-        return responseToCamelCase<CursorList<ArticleSummaryVo>, CursorList<ArticleSummaryDto>>(response.data)
+        return response.data
     } catch(error) {
         throw error        
     }
 }
 
-export async function getCategoryArticles(categoryId: number, createdAt: Date|null): Promise<CursorList<ArticleSummaryDto>>{
+export async function getCategoryArticles(categoryId: number|null, cursorId: string|null, size: number): Promise<CursorList<ArticleDto>>{
     // console.log("[article-api]::getCategoryArticles called. category ID : " + categoryId)
     try {
-        const queries = {
-            categoryId: categoryId,
-            createdAt: createdAt||null
+        const queries: any = {
+            size: size
         }
-
+        
+        if (categoryId !== null) {
+            queries.categoryId = categoryId
+        }
+        
+        if (cursorId !== null) {
+            queries.cursor = cursorId
+        }
+        // console.log("queries : ", queries)
         const response = await axiosCustom.get(env.REACT_APP_API_ARTICLE, {params: queries})
-        // console.log("   respone : " + JSON.stringify(response))
-        return responseToCamelCase<CursorList<ArticleSummaryVo>, CursorList<ArticleSummaryDto>>(response.data)
+        return response.data
     }catch(error) {
         throw error
     }
@@ -37,37 +42,35 @@ export async function getArticle(id: string): Promise<ArticleDto> {
         const url = env.REACT_APP_API_ARTICLE_DETAIL+id 
         const response = await axiosCustom.get(url)
         const data = response.data
-
-        return responseToCamelCase<ArticleVo, ArticleDto>(data)
+        return data
     }catch(error){
         throw error
     }
 }
 
-export async function createArticle(title: string, contents: string, category: string): Promise<ArticleDto> {
+export async function createArticle(title: string, content: string, categoryId: number): Promise<CreateArticleResponse> {
     try{
-        const vo: ArticleCreateRequestVo = {
+        const request: CreateArticleRequest = {
             title: title,
-            contents: contents,
-            category: category
+            content: content,
+            categoryId: categoryId
         }
-        const response = await axiosCustom.post(env.REACT_APP_API_ARTICLE_COMMAND, vo)
-        return responseToCamelCase<ArticleVo, ArticleDto>(response.data)
+        const response = await axiosCustom.post(env.REACT_APP_API_ARTICLE_COMMAND, request)
+        return response.data
        }catch(error){
         throw error
     }
 }
 
-export async function modifyArticle(article: Article): Promise<ArticleDto> {
+export async function modifyArticle(article: Article): Promise<void> {
     try {
-        const vo: ArticleModifyRequestVo = {
+        const vo: CreateArticleRequest = {
             title: article.title,
-            contents: article.contents,
-            category: article.category.name
+            content: article.contents,
+            categoryId: article.category.id
         }
         const url = env.REACT_APP_API_ARTICLE_COMMAND + "/" + article.id
-        const response = await axiosCustom.patch(url, vo)
-        return responseToCamelCase<ArticleVo, ArticleDto>(response.data)
+        const response = await axiosCustom.put(url, vo)
     }catch(error) {
         throw error
     }

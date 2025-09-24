@@ -20,6 +20,7 @@ interface Cursor {
 }
 
 function cursorFromUrl(url : string | null, callback : React.Dispatch<Cursor | null>) {
+  console.log("cursorFromUrl called with url:", url)
   const cursor = parseQueries<Cursor>(url)
   cursor ? callback({...cursor, url: url}) : callback(null)
 } 
@@ -35,7 +36,7 @@ const useArticleViewModel = () => {
 
   const categorySelectEventListener: Subscriber = {
     update(event, data) {
-      // console.log("[ArticleViewModel]::categorySelectEventListner update called.")
+      console.log("[ArticleViewModel]::categorySelectEventListner update called.")
       const eventParameter = data as CategorySelectEventParameter
       setCategory((previousCategory)=>{
         if(previousCategory.id === eventParameter.id) {
@@ -43,10 +44,20 @@ const useArticleViewModel = () => {
         }
         return new Category(eventParameter.id, eventParameter.name, 0)
       })
+      articleRepository.getArticles(eventParameter.id, 20, cursorCallback)
+        .then((res) => {
+          setArticles((prev)=>[...res])
+        })
+        .catch((err) => {
+          console.error(err)
+          alert("게시물 목록을 불러오는데 실패하였습니다.")
+        }
+      )
     }
   }
 
   const cursorCallback = (next: string | null) => {
+  console.log("cursorCallback called with url:", next)
     setNext((prev)=> {
       return next
     })
@@ -58,10 +69,6 @@ const useArticleViewModel = () => {
       defaultEventManager.unsubscribe(CategorySelectEvent, categorySelectEventListener)
     }
   }, [])
-
-  useEffect(()=>{
-    loadArticles(category.id)
-  }, [category])
 
   useEffect(()=>{
     // console.log("next changed : " + next)
@@ -90,18 +97,21 @@ const useArticleViewModel = () => {
   const { setTarget } = useIntersectionObserver({onIntersect}) 
 
   const loadArticles = (categoryId: number) => {
-    articleRepository.getArticles(category.id, cursorCallback)
+    articleRepository.getArticles(category.id, 20, cursorCallback)
     .then((res) => {
       setArticles((prev)=>[...res])
       setIsLoading(false)
     })
-    .catch((err) => alert("게시물 목록을 불러오는데 실패하였습니다."))
+    .catch((err) => {
+      console.error(err)
+      alert("게시물 목록을 불러오는데 실패하였습니다.")
+    })
   }
 
   const loadNextArticles = () => {
     articleRepository.getArticlesByUrl(next, cursorCallback)
     .then((res)=>setArticles([...articles, ...res]))
-    .catch((err)=>alert("게시물 목록을 불러오는데 실패했습니다."))
+    .catch((err)=>console.error(err))
   }
 
   useEffect(()=>{

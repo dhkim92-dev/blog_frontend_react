@@ -25,7 +25,7 @@ export function decodeJWT(token: string) {
 
 export async function reissueAccessToken() {
     try {
-        const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH)
+        const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH, {})
     } catch(error) {
         rootStore.dispatch(setMember(null))
         rootStore.dispatch(setAccessToken(null))
@@ -46,18 +46,20 @@ export async function revokeOAuth2Accesstoken(memberId: string, platform: string
 }
 
 export async function logout(): Promise<void> {
-    const url = `${process.env.REACT_APP_JWT_AUTH}/revoke`
+    const url = `${process.env.REACT_APP_JWT_AUTH_LOGOUT}`
     try {
         const response = await axiosCustom.delete(url)
         rootStore.dispatch(setMember(null))
         rootStore.dispatch(setAccessToken(null))
     } catch(e) {
         console.log(e)
+        throw e
     }
 }
 
 export async function githubLogin(queries: string): Promise<LoginResponse> {
   const url = process.env.REACT_APP_OAUTH2_GITHUB_CALLBACK_URI + "?" + queries
+  console.debug("github login url : " + url)
   try {
     const response = await axiosCustom.get(url, { withCredentials: true })
 
@@ -77,12 +79,12 @@ export async function emailPasswordSignIn(email: string, password: string): Prom
 
     try{
         const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH, request) 
-        console.log(response)
         return {
             type: response.data.type
         }
     }catch(error) {
         alert("Failed to login, check your email & password.")
+        console.error(error)
         throw error
     }
 }

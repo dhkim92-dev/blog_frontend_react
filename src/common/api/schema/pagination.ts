@@ -1,16 +1,13 @@
-export interface PageableElement {
-    name: string
-    value: string
+export interface CursorList<T> extends BaseResponse{
+    count: number
+    items: T[]
 }
 
-export interface CursorPageable {
-    pivot: PageableElement
-    direction: string
-    count: number
+export interface Href {
+    href: string|null
 }
 
-export interface CursorList<T> {
-    count: number
-    data: T[]
-    next: string|null
+export interface BaseResponse {
+    // _links: Map<string, Href>
+    _links: { [key: string]: Href }  // Map 대신 일반 객체
 }

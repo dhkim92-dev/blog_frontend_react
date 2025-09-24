@@ -1,22 +1,41 @@
 import axiosCustom from "../../../common/api/axios-custom";
+import { CursorList } from "../../../common/api/schema/pagination";
 import { convertDtoToModel } from "../../../common/utility/converter";
+import { Member } from "../../member/model/Member";
 import { createArticle, deleteArticle, getArticle, getArticlesByUrl, getCategoryArticles, modifyArticle } from "../api/article-api";
-import { ArticleCreateRequestVo } from "../api/vo/article-vo";
-import { ArticleDto, ArticleSummaryDto } from "../dto/ArticleDto";
+import { ArticleDto } from "../dto/ArticleDto";
 import { Article } from "../model/Article";
+import { Category } from "../model/Category";
 
 export class ArticleRepository {
 
-    public async getArticles(category: number, callback: any): Promise<Article[]>{
+    private mapToModel(dto: ArticleDto): Article {
+        try {
+            return new Article(
+                dto.id,
+                dto.title,
+                dto.createdAt,
+                dto.content,
+                new Member(dto.writer.id, dto.writer.nickname),
+                new Category(dto.category.id, dto.category.name, dto.category.count),
+                dto.viewCount,
+                dto.commentCount,
+                dto.likeCount,
+            )
+        } catch(error) {
+            throw error
+        }
+    }
+
+    public async getArticles(category: number, size: number, callback: any): Promise<Article[]>{
         // console.log("[ArticleRepository]::get articles called. cat : " + category)
         try {
-            const listData = await getCategoryArticles(category, null)
-            // console.log("receive data : " + JSON.stringify(listData))
-            const models = listData.data.map((v, i) => {
-                return convertDtoToModel<ArticleSummaryDto, Article>(v, Article)
-            })
-            // console.log("models : " + JSON.stringify(models))
-            callback(listData.next)
+            const categoryId = category === 0 ? null : category
+            const listData: CursorList<ArticleDto> = await getCategoryArticles(categoryId, null, size)
+            // console.log("listData : ", listData)
+            const models = listData.items.map((v, i) =>  this.mapToModel(v))
+            // console.log("models : ", models)
+            callback(listData._links?.next?.href || null)
             return models
         }catch(error){
             throw error
@@ -26,11 +45,9 @@ export class ArticleRepository {
     public async getArticlesByUrl(url: string|null, callback: any): Promise<Article[]> {
         try {
             if(url === null) return []
-            const listData = await getArticlesByUrl(url)
-            const models = listData.data.map((v, i) => {
-                return convertDtoToModel<ArticleSummaryDto, Article>(v, Article)
-            })
-            callback(listData.next)
+            const listData: CursorList<ArticleDto> = await getArticlesByUrl(url)
+            const models = listData.items.map((v, i) =>  this.mapToModel(v))
+            callback(listData._links?.next?.href || null)
             return models
         }catch(error){
             throw error
@@ -40,7 +57,7 @@ export class ArticleRepository {
     public async getArticle(id: string): Promise<Article> {
         try {
             const dto = await getArticle(id)
-            return convertDtoToModel<ArticleDto, Article>(dto, Article)
+            return this.mapToModel(dto)
         } catch(error) {
             throw error
         }
@@ -48,8 +65,9 @@ export class ArticleRepository {
 
     public async save(article: Article): Promise<Article> {
         try {
-            const response = await createArticle(article.title, article.contents, article.category.name)
-            return convertDtoToModel<ArticleDto, Article>(response, Article)
+            const response = await createArticle(article.title, article.contents, article.category.id)
+            article.id=response.id
+            return article
         } catch(error) {
             throw error
         }
@@ -58,7 +76,7 @@ export class ArticleRepository {
     public async modify(article: Article): Promise<Article> {
         try {
             const response = await modifyArticle(article)
-            return convertDtoToModel<ArticleDto, Article>(response, Article)
+            return article
         } catch(error) {
             throw error
         }

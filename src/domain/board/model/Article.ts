@@ -19,8 +19,10 @@ export class Article {
 
     private _commentCount: number
 
-    constructor(id: string, title: string, createdAt: Date, contents: string, author: Member, category: Category, viewCount: number, commentCount: number);
-    constructor(id: string, title?: string, createdAt?: Date, contents?: string, author?: Member, category?: Category, viewCount?: number, commentCount?: number);
+    private _likeCount: number
+
+    constructor(id: string, title: string, createdAt: Date, contents: string, author: Member, category: Category, viewCount: number, commentCount: number, likeCount: number);
+    constructor(id: string, title?: string, createdAt?: Date, contents?: string, author?: Member, category?: Category, viewCount?: number, commentCount?: number, likeCount?: number);
     constructor(id: string = "", 
         title: string = "", 
         createdAt: Date = new Date(), 
@@ -28,7 +30,8 @@ export class Article {
         author: Member = new Member("", ""), 
         category: Category = new Category(0, "", 0),
         viewCount: number = 0,
-        commentCount: number = 0) 
+        commentCount: number = 0,
+        likeCount: number = 0) 
     {
         this._id = id
         this._title = title
@@ -38,10 +41,15 @@ export class Article {
         this._category = category
         this._viewCount = viewCount
         this._commentCount = commentCount
+        this._likeCount = likeCount
     }
 
     get id(): string {
         return this._id
+    }
+
+    set id(id: string) {
+        this._id = id
     }
 
     get title(): string {
@@ -50,6 +58,10 @@ export class Article {
 
     get createdAt(): Date {
         return this._createdAt
+    }
+
+    set createdAt(date: Date) {
+        this._createdAt = date
     }
 
     get contents(): string {

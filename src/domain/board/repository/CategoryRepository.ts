@@ -1,12 +1,11 @@
-import { changeCategoryName, createCategory, getCategories } from "../api/category-api";
+import { updateCategory, createCategory, getCategories } from "../api/category-api";
 import { Category } from "../model/Category";
 
 class CategoryRepository {
 
   async getCategories(): Promise<Category[]> {
     try {
-      const dtoList = await getCategories()
-      return dtoList.map(dto=>new Category(dto.id, dto.name, dto.count))
+      return (await getCategories()).items.map(v => new Category(v.id, v.name, v.count))
     } catch(error) {
       throw error
     }
@@ -23,7 +22,7 @@ class CategoryRepository {
 
   async modify(category: Category): Promise<Category> {
     try {
-      const dto = await changeCategoryName(category.id, category.name)
+      const dto = await updateCategory(category.id, category.name)
       return new Category(dto.id, dto.name, dto.count)
     }catch(error) {
       throw error
