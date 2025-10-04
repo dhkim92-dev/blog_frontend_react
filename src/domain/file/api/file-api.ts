@@ -3,7 +3,7 @@ import { ImageUploadResponseVo } from "../vo/ImageUploadResponseVo";
 
 export async function uploadImage(file: FormData): Promise<ImageUploadResponseVo>{
     try {
-        const response = await axiosCustom.put(process.env.REACT_APP_API_IMAGE, file,{
+        const response = await axiosCustom.post(process.env.REACT_APP_API_IMAGE, file,{
             headers : {
                 'Content-Type' : 'multipart/form-data',
             }

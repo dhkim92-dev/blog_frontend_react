@@ -26,7 +26,9 @@ export function decodeJWT(token: string) {
 export async function reissueAccessToken() {
     try {
         const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH, {})
+        console.log("reissue access token response : " + JSON.stringify(response.data))
     } catch(error) {
+        console.error("reissue jwt error : " + error)
         rootStore.dispatch(setMember(null))
         rootStore.dispatch(setAccessToken(null))
     }

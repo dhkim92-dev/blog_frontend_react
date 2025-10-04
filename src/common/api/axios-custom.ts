@@ -61,7 +61,7 @@ function onAuthenicationSuccess(res: AxiosResponse<any, any>) {
 axiosCustom.interceptors.response.use(
   async function (response) {
     // console.log(JSON.stringify(response.data))
-    if(response.data.code === "A001" || response.data.code==="A002") {
+    if(response.data.code === "AT001" || response.data.code==="AT002") {
       console.log("JWT token published.")
       onAuthenicationSuccess(response)
     }
