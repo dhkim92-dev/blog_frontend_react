@@ -26,7 +26,6 @@ export function decodeJWT(token: string) {
 export async function reissueAccessToken() {
     try {
         const response = await axiosCustom.post(env.REACT_APP_JWT_AUTH_REFRESH, {})
-        console.log("reissue access token response : " + JSON.stringify(response.data))
     } catch(error) {
         console.error("reissue jwt error : " + error)
         rootStore.dispatch(setMember(null))
@@ -61,7 +60,6 @@ export async function logout(): Promise<void> {
 
 export async function githubLogin(queries: string): Promise<LoginResponse> {
   const url = process.env.REACT_APP_OAUTH2_GITHUB_CALLBACK_URI + "?" + queries
-  console.debug("github login url : " + url)
   try {
     const response = await axiosCustom.get(url, { withCredentials: true })
 
